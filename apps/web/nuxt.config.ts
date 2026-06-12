@@ -40,6 +40,10 @@ export default defineNuxtConfig({
     },
   },
 
+  icon: {
+    localApiEndpoint: '/_nuxt_icon',
+  },
+
   modules: [
     '@nuxt/eslint',
     '@pinia/nuxt',
