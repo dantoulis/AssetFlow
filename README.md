@@ -4,6 +4,20 @@ AssetFlow is a full-stack asset management platform for internal teams. It helps
 
 This repository is published as a portfolio/demo application. The project is intended to be easy to clone, run, inspect, and discuss. The recommended way to explore it is through Docker so the full stack, seeded data, email sandbox, and database tooling all come up in a reproducible way.
 
+## Live Demo
+
+AssetFlow is available as a hosted demo:
+
+- **Live app**: [https://asset-flow-web.vercel.app/](https://asset-flow-web.vercel.app/)
+- **API health check**: [assetflow-ij5a](https://assetflow-ij5a.onrender.com)
+
+Demo credentials:
+
+- **Admin**: username `admin`, password `admin`
+- **User**: username `user`, password `user`
+
+The backend is currently deployed on free tier web service, so the first request after a period of inactivity can take up to a minute while the service wakes up.
+
 ## Environment Files
 
 This repository uses three environment files:
