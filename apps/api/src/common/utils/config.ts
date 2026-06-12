@@ -118,6 +118,12 @@ export const validateApiRuntimeEnv = (): void => {
     errors.push('SMTP_PORT must be a valid number.');
   }
 
+  const smtpUser = trimEnvValue('SMTP_USER');
+  const smtpPass = trimEnvValue('SMTP_PASS');
+  if ((smtpUser && !smtpPass) || (!smtpUser && smtpPass)) {
+    errors.push('SMTP_USER and SMTP_PASS must be configured together.');
+  }
+
   const port = trimEnvValue('PORT');
   if (port && Number.isNaN(Number.parseInt(port, 10))) {
     errors.push('PORT must be a valid number.');

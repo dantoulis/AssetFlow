@@ -15,6 +15,8 @@ export class MailService {
   private getTransportOptions(): SMTPTransport.Options {
     const host = process.env.SMTP_HOST?.trim() || 'localhost';
     const port = parseInt(process.env.SMTP_PORT ?? '1025', 10);
+    const user = process.env.SMTP_USER?.trim();
+    const pass = process.env.SMTP_PASS?.trim();
 
     if (isNaN(port)) {
       throw new InternalServerErrorException('SMTP_PORT must be a valid number');
@@ -25,7 +27,7 @@ export class MailService {
       port,
       secure: this.parseEnvBoolean(process.env.SMTP_SECURE, false),
       ignoreTLS: this.parseEnvBoolean(process.env.SMTP_IGNORE_TLS, true),
-      auth: undefined,
+      auth: user && pass ? { user, pass } : undefined,
     };
   }
 
