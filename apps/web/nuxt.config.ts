@@ -52,6 +52,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/color-mode',
     'shadcn-nuxt',
+    '@vercel/analytics',
   ],
   colorMode: {
     classSuffix: '',
