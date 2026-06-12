@@ -27,6 +27,9 @@ export class MailService {
       port,
       secure: this.parseEnvBoolean(process.env.SMTP_SECURE, false),
       ignoreTLS: this.parseEnvBoolean(process.env.SMTP_IGNORE_TLS, true),
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 15000,
       auth: user && pass ? { user, pass } : undefined,
     };
   }
