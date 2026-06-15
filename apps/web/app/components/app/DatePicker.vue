@@ -4,7 +4,7 @@
       <Button
         :id="id"
         variant="outline"
-        class="h-11 w-full justify-between rounded-2xl border-border/70 bg-muted/58 px-4 text-left font-normal shadow-none dark:bg-background/55"
+        class="h-11 w-full justify-between rounded-2xl border-border/70 bg-muted/58 px-4 text-left font-normal shadow-none dark:border-border/90 dark:bg-input"
         :class="!modelValue && 'text-muted-foreground'"
       >
         <span>{{ displayLabel }}</span>

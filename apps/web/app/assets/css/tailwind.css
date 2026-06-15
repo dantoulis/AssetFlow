@@ -239,7 +239,7 @@
 }
 
 @utility app-select {
-  @apply flex h-11 w-full rounded-2xl border border-input bg-muted/58 px-4 pr-10 text-sm shadow-sm outline-none ring-offset-background transition focus-visible:ring-2 focus-visible:ring-ring dark:bg-background/78;
+  @apply flex h-11 w-full rounded-2xl border border-input bg-muted/58 px-4 pr-10 text-sm shadow-sm outline-none ring-offset-background transition focus-visible:ring-2 focus-visible:ring-ring dark:border-border/90 dark:bg-input;
 }
 
 .app-select {

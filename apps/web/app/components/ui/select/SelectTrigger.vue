@@ -4,7 +4,7 @@
     v-bind="{ ...$attrs, ...forwarded }"
     :class="
       cn(
-        'border-input bg-muted/58 ring-offset-background focus-visible:ring-ring data-[placeholder]:text-muted-foreground flex h-11 w-full items-center justify-between gap-3 rounded-2xl border px-4 py-2 text-sm shadow-sm outline-hidden transition focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-background/82',
+        'border-input bg-muted/58 ring-offset-background focus-visible:ring-ring data-[placeholder]:text-muted-foreground flex h-11 w-full items-center justify-between gap-3 rounded-2xl border px-4 py-2 text-sm shadow-sm outline-hidden transition focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-border/90 dark:bg-input',
         props.class,
       )
     "

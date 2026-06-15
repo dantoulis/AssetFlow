@@ -128,25 +128,6 @@
         </div>
       </CardContent>
     </Card>
-
-    <Dialog v-model:open="createDialogOpen">
-      <DialogScrollContent class="rounded-3xl sm:max-w-3xl">
-        <DialogHeader>
-          <DialogTitle>Create and assign asset</DialogTitle>
-          <DialogDescription>
-            Provision a new asset record and assign it directly to a team member.
-          </DialogDescription>
-        </DialogHeader>
-        <AssetEditor
-          embedded
-          submit-label="Create asset"
-          :owner-options="ownerOptions"
-          :saving="creating"
-          :show-owner-select="true"
-          @submit="createAsset"
-        />
-      </DialogScrollContent>
-    </Dialog>
   </div>
 </template>
 
