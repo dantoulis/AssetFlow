@@ -44,8 +44,8 @@ The split is deliberate:
 
 After the seeded setup runs, you can sign in with:
 
-- **Admin**: username `maya.thompson`, password `admin`
-- **User**: username `elias.morgan`, password `user`
+- **Admin**: username `admin`, password `admin`
+- **User**: username `user`, password `user`
 
 These credentials work with the seeded demo data used by Docker and by the local `db:seed` flow.
 

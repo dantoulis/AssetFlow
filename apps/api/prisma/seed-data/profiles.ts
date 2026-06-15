@@ -22,7 +22,7 @@ export interface SeedUserProfile {
 export const ADMIN_PROFILE: SeedUserProfile = {
   name: 'Maya Thompson',
   email: 'maya.thompson@assetflow-demo.dev',
-  username: 'maya.thompson',
+  username: 'admin',
   phone: '+44 20 7946 0110',
   team: 'Operations',
   location: 'London',
@@ -34,7 +34,7 @@ export const USER_PROFILES: SeedUserProfile[] = [
   {
     name: 'Elias Morgan',
     email: 'elias.morgan@assetflow-demo.dev',
-    username: 'elias.morgan',
+    username: 'user',
     phone: '+30 21 5550 1401',
     team: 'Engineering',
     location: 'Athens',
