@@ -61,6 +61,10 @@ export const getBackendUrl = (): string | undefined => trimEnvValue('BACKEND_URL
 
 export const getJwtSecret = (): string => getRequiredEnv('JWT_SECRET');
 
+export const getGeminiApiKey = (): string | undefined => trimEnvValue('GEMINI_API_KEY');
+
+export const getGeminiModel = (): string => trimEnvValue('GEMINI_MODEL') ?? 'gemini-3.1-flash-lite';
+
 export const getPasswordResetUrlBase = (): string | undefined => {
   const explicitValue = trimEnvValue('PASSWORD_RESET_URL_BASE');
 

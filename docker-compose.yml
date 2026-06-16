@@ -59,6 +59,8 @@ services:
       GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID:-}
       GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET:-}
       GITHUB_CALLBACK_URL: ${GITHUB_CALLBACK_URL:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-3.1-flash-lite}
     healthcheck:
       test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:3333/ | grep -q Healthy']
       interval: 10s
