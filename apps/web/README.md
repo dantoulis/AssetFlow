@@ -7,6 +7,7 @@ This package contains the Nuxt frontend for AssetFlow.
 - public auth pages for login, register, forgot password, and reset password
 - employee dashboard pages for assets, requests, tickets, profile, and account settings
 - admin dashboard pages for users, assets, requests, tickets, and account management
+- AI dashboard brief card for admin and employee dashboards
 - SSR-friendly API access through configurable runtime URLs
 
 ## Main Tech
@@ -61,6 +62,8 @@ Key variables:
 - `NUXT_PUBLIC_GITHUB_AUTH_ENABLED`
 
 This package reads `apps/web/.env` during normal local development. The root `.env` is reserved for Docker Compose.
+
+The AI dashboard brief does not require web-specific environment variables. The frontend builds a bounded snapshot from already-fetched dashboard store data and sends it to the API, where Gemini configuration is handled.
 
 ## Docker Note
 

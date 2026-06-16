@@ -8,6 +8,7 @@ This package contains the NestJS backend for AssetFlow.
 - Google and GitHub OAuth flows
 - JWT cookie-based session handling
 - password reset email flow
+- Gemini-backed AI dashboard brief endpoint
 - users, assets, tickets, and asset request modules
 - Prisma-based Postgres access
 
@@ -18,6 +19,7 @@ This package contains the NestJS backend for AssetFlow.
 - **PostgreSQL** as the database
 - **Passport** for local and social auth strategies
 - **Nodemailer** for outgoing email
+- **Google Gemini API** for optional AI dashboard brief generation
 
 ## Useful Scripts
 
@@ -70,9 +72,12 @@ Key variables:
 - `MAIL_FROM`
 - SMTP settings
 - optional OAuth credentials and callback URLs
+- optional `GEMINI_API_KEY` and `GEMINI_MODEL`
 
 For the default local Mailpit workflow, no SMTP username or password is required.
 For this test/demo repository, `apps/api/.env.example` intentionally includes the shared demo JWT secret `top_secret_jwt` so the API can start immediately after cloning.
+
+If `GEMINI_API_KEY` is not set, the AI endpoint returns a service-unavailable response while the rest of the API remains usable.
 
 This package reads `apps/api/.env` during normal local development. The root `.env` is reserved for Docker Compose.
 

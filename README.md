@@ -37,6 +37,7 @@ The split is deliberate:
 - Authenticates users with username/password and optional Google or GitHub OAuth.
 - Lets employees browse assigned assets, submit asset requests, and open support tickets.
 - Gives admins a separate dashboard to manage users, assets, requests, and support activity.
+- Generates optional Gemini-powered AI dashboard briefs from the data already visible in each dashboard.
 - Supports password recovery through email.
 - Ships with local email testing through Mailpit and a ready-to-use Postgres database flow in Docker.
 
@@ -67,6 +68,7 @@ These credentials work with the seeded demo data used by Docker and by the local
 - **PostgreSQL**: primary relational database.
 - **Passport + JWT cookies**: authentication, protected routes, and OAuth integrations.
 - **Nodemailer**: email transport used for password reset messages.
+- **Google Gemini API**: optional AI provider used for dashboard workflow briefs.
 
 ### Tooling And Infrastructure
 
@@ -105,6 +107,8 @@ Important variables:
 - `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_CALLBACK_URL`: Google OAuth.
 - `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `GITHUB_CALLBACK_URL`: GitHub OAuth.
 - `NUXT_PUBLIC_GOOGLE_AUTH_ENABLED`, `NUXT_PUBLIC_GITHUB_AUTH_ENABLED`: controls whether social auth buttons appear. Leave them `false` until the matching OAuth credentials are configured.
+- `GEMINI_API_KEY`: enables AI dashboard briefs.
+- `GEMINI_MODEL`: optional Gemini model override. Defaults to `gemini-3.1-flash-lite`.
 
 JWT note:
 
@@ -139,6 +143,7 @@ What still needs user-specific credentials:
 
 - Google OAuth
 - GitHub OAuth
+- Gemini AI briefs
 - any non-local email provider
 
 Mailer note:
@@ -146,6 +151,12 @@ Mailer note:
 - The default Docker mailer is Mailpit.
 - Mailpit does not require an SMTP username or password in this project.
 - The only mail-related values a fresh clone needs are already present in `.env.example`: `MAIL_FROM`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, and `SMTP_IGNORE_TLS`.
+
+AI note:
+
+- The AI dashboard card appears on both the admin and employee dashboards.
+- Without `GEMINI_API_KEY`, the rest of the app still works and the AI brief action reports that AI is unavailable.
+- The frontend sends a bounded snapshot of the dashboard data it has already fetched; the backend validates that snapshot, checks the current user's role/page, calls Gemini, and normalizes the response.
 
 ### How To Get The Missing OAuth Env Vars
 
@@ -330,6 +341,7 @@ For the API, the important values are in `apps/api/.env`:
 - `JWT_SECRET`
 - SMTP or Mailpit settings
 - Optional OAuth provider credentials
+- Optional `GEMINI_API_KEY` and `GEMINI_MODEL` for AI dashboard briefs
 
 For this test/demo repository, the example API env already includes the shared demo JWT secret `top_secret_jwt` so a fresh clone can boot without inventing a secret first.
 
