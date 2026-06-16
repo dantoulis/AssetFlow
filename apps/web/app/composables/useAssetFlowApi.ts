@@ -15,6 +15,8 @@ import type {
   TicketUpdatePayload,
   UserRoleUpdatePayload,
   UserUpdatePayload,
+  DashboardAiBrief,
+  DashboardAiSnapshot,
 } from '@/lib/app-types';
 
 export const useAssetFlowApi = () => {
@@ -73,5 +75,7 @@ export const useAssetFlowApi = () => {
       request<AppAssetRequest>(`/asset-requests/${id}/fulfill`, { method: 'PATCH', body }),
     deleteAssetRequest: (id: number) =>
       request<AppAssetRequest>(`/asset-requests/${id}`, { method: 'DELETE' }),
+    generateDashboardBrief: (body: DashboardAiSnapshot) =>
+      request<DashboardAiBrief>('/ai/dashboard-brief', { method: 'POST', body }),
   };
 };

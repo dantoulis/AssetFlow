@@ -192,3 +192,86 @@ export interface UserUpdatePayload {
 export interface UserRoleUpdatePayload {
   role: AppRole;
 }
+
+export interface DashboardAiMetric {
+  label: string;
+  value: string;
+  delta: string;
+  hint: string;
+}
+
+export interface DashboardAiAsset {
+  title: string;
+  type: AssetType;
+  status: AssetStatus;
+  vendor: string;
+  billingCycle: BillingCycle | null;
+  purchasedAt: string | null;
+  assignedAt: string | null;
+  renewalAt: string | null;
+  expiresAt: string | null;
+  seatCount: number | null;
+  ownerTeam?: string | null;
+  tags: string[];
+}
+
+export interface DashboardAiTicket {
+  subject: string;
+  category: TicketCategory;
+  priority: TicketPriority;
+  status: TicketStatus;
+  requesterTeam?: string | null;
+  relatedAsset?: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface DashboardAiRequest {
+  title: string;
+  assetType: AssetType | null;
+  vendor: string | null;
+  justification: string | null;
+  status: AssetRequestStatus;
+  requesterTeam?: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface DashboardAiSnapshot {
+  role: AppRole;
+  visiblePage: 'admin-dashboard' | 'user-dashboard';
+  generatedAt: string;
+  visibleMetrics: DashboardAiMetric[];
+  assets: DashboardAiAsset[];
+  tickets: DashboardAiTicket[];
+  requests: DashboardAiRequest[];
+}
+
+export interface DashboardAiReasoning {
+  label: string;
+  reasoning: string;
+  evidence: string[];
+}
+
+export interface DashboardAiRecommendedAction {
+  action: string;
+  reason: string;
+  urgency: 'NOW' | 'NEXT' | 'WATCH';
+}
+
+export interface DashboardAiBrief {
+  title: string;
+  severity: 'LOW' | 'MEDIUM' | 'HIGH';
+  summary: string;
+  primaryRisk: DashboardAiReasoning;
+  patternDetected: DashboardAiReasoning;
+  recommendedActions: DashboardAiRecommendedAction[];
+  generatedAt: string;
+  provider: 'gemini' | string;
+}
+
+export interface DashboardAiSnapshotStats {
+  assets: number;
+  tickets: number;
+  requests: number;
+}

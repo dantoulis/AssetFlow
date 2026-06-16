@@ -15,6 +15,8 @@
       </template>
     </PageIntro>
 
+    <AiDashboardBrief />
+
     <section class="grid gap-4 xl:grid-cols-4">
       <MetricCard
         v-for="(metric, index) in metrics"
