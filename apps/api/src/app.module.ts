@@ -8,6 +8,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { TicketsModule } from './tickets/tickets.module';
 import { AssetRequestsModule } from './asset-requests/asset-requests.module';
+import { AiModule } from './ai/ai.module';
 
 @Module({
   exports: [UsersModule, TicketsModule],
@@ -18,6 +19,7 @@ import { AssetRequestsModule } from './asset-requests/asset-requests.module';
     AuthModule,
     TicketsModule,
     AssetRequestsModule,
+    AiModule,
   ],
   controllers: [AppController],
   providers: [AppService],
