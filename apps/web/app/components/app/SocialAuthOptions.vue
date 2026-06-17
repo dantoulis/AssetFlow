@@ -37,9 +37,10 @@ type SocialProvider = {
 
 const config = useRuntimeConfig();
 const apiBase = usePublicApiBase();
-const parseFeatureFlag = (value: string) => value === 'true';
-const googleAuthEnabled = parseFeatureFlag(config.public.googleAuthEnabled);
-const githubAuthEnabled = parseFeatureFlag(config.public.githubAuthEnabled);
+
+const parsePublicFeatureFlag = (value: unknown): boolean => value === true || value === 'true';
+const googleAuthEnabled = parsePublicFeatureFlag(config.public.googleAuthEnabled);
+const githubAuthEnabled = parsePublicFeatureFlag(config.public.githubAuthEnabled);
 
 const providers = computed<SocialProvider[]>(() => [
   ...(googleAuthEnabled
